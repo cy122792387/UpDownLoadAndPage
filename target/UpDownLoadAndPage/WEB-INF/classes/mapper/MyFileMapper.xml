@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.code.mapper.MyFileMapper">
+    <insert id="insertFile" parameterType="com.code.bean.MyFile">
+        INSERT INTO myfile (filename,filepath) VALUES (#{fileName},#{filePath});
+    </insert>
+    <select id="queryAll" resultType="com.code.bean.MyFile">
+        SELECT * FROM myfile;
+    </select>
+    <select id="queryByPage" resultType="com.code.bean.MyFile">
+        SELECT * FROM myfile LiMIT #{0},#{1};
+    </select>
+    <select id="getFilesCount" resultType="Integer">
+        SELECT COUNT(1) FROM myfile;
+    </select>
+</mapper>
